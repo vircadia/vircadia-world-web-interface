@@ -7,15 +7,21 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "test": "playwright install && playwright test"
   },
   "dependencies": {
-    "astro": "^5.0.0-beta.5",
     "@astrojs/check": "^0.9.4",
     "@astrojs/vue": "^4.5.2",
+    "@babylonjs/core": "^7.30.0",
+    "astro": "^5.0.0-beta.5",
     "typescript": "^5.6.3",
-    "vue": "^3.5.12",
-    "@babylonjs/core": "^7.30.0"
+    "vue": "^3.5.12"
   },
-  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
+  "devDependencies": {
+    "@playwright/test": "^1.48.1",
+    "@testing-library/vue": "^8.1.0",
+    "@types/node": "^22.7.7"
+  }
 }
