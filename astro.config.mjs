@@ -1,8 +1,9 @@
 import { defineConfig } from 'astro/config';
 import vue from "@astrojs/vue";
+import { config } from './vircadia.config';
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://app.vircadia.com",
+  site: config.baseUrl,
   integrations: [vue()]
 });
