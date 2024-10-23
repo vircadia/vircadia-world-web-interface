@@ -1,9 +1,12 @@
-import { Component, onMount } from 'solid-js';
+import { Component, onMount, createEffect } from 'solid-js';
 import * as BABYLON from '@babylonjs/core';
 import styles from './App.module.css';
+import { useStore } from './stores/store';
+import { config } from '../vircadia.config';
 
 const App: Component = () => {
   let canvas: HTMLCanvasElement | undefined;
+  const store = useStore();
 
   onMount(() => {
     if (canvas) {
@@ -26,9 +29,18 @@ const App: Component = () => {
 
       window.addEventListener("resize", resizeHandler);
 
+      store.setDebugMode(true);
+      store.connectToWorld({ url: config.defaultWorldSupabaseUrl, key: config.defaultWorldSupabaseAnonKey });
+
+      createEffect(() => {
+        console.log('Debug mode:', store.state.debugMode);
+        console.log('World connection:', store.state.world);
+      });
+
       return () => {
         window.removeEventListener("resize", resizeHandler);
         engine.dispose();
+        store.disconnectFromWorld();
       };
     }
   });
