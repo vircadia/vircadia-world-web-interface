@@ -1,0 +1,3 @@
+[submodule "src/modules/vircadia-world-sdk-ts"]
+	path = src/modules/vircadia-world-sdk-ts
+	url = https://github.com/vircadia/vircadia-world-sdk-ts
